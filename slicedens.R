@@ -10,8 +10,7 @@
 # lcol: line color for each slice
 # lwidth: line width
 # extend: Boolean to extend lines to edge of plot area
-# densopt: list of strings containing density() arguments that
-		 are passed verbatim.
+# densopt: list of strings containing density() arguments that are passed verbatim.
 
 # NB if you want to cycle slice colors through vectors, you
 #	need to change the function code; it sounds like a
@@ -47,10 +46,9 @@ slicedens<-function(x,y,slices=50,lboost=1,gboost=1,xinc=0,yinc=0.01,
 # Example 1:
 y<-runif(5000,min=-1,max=1)
 x<-runif(5000,min=-1,max=1)+rnorm(5000,mean=1/(y+1.1),sd=0.8-(y*0.5))
-slicedens(x,y,lboost=0.2,fcol=rgb(0,0,0,200,maxColorValue=255))
+slicedens(x,y,lboost=0.8,fcol=rgb(0,0,0,200,maxColorValue=255))
 
 # Example 2:
-library(iris)
-slicedens(x=iris$Sepal.Width,y=iris$Sepal.Length,slices=12,
-		lboost=0.02,fcol=rgb(0,0,0,200,maxColorValue=255),
+slicedens(x=iris$Sepal.Width,y=iris$Sepal.Length,slices=12,yinc=0.05,
+		lboost=0.03,gboost=0.4,fcol=rgb(0,0,0,200,maxColorValue=255),
 		extend=TRUE,densopt=list(kernel="cosine",adjust=0.5))
